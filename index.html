@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css" media="all">
+    <title>Authentification JS</title>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Boutons d'inscription ou connexion/déconnexion -->
+        <div class="btn-group">
+            <button type="button" role="button">Inscription</button>
+            <button type="button" role="button">Connexion</button>
+        </div>
+        <h1>Bienvenue. Pour accéder au contenu INSCRIVEZ-VOUS ou CONNECTEZ-VOUS</h1>
+        <p class="info">Contenu public</p>
+        <!-- Formulaire d'inscription -->
+        <form class="inscription">
+            <div class="inscription-mail-group">
+                <label for="inscription-mail">Votre @mail</label>
+                <input type="email" id="inscription-mail" />
+            </div>
+            <div class="inscription-mdp-group">
+                <label for="inscription-mdp">Votre mot de passe</label>
+                <input type="password" id="inscription-mdp" />
+            </div>
+            <button type="submit" class="btn-inscription">Inscrivez-vous</button>
+        </form>
+        <!-- Formulaire de connexion -->
+        <form class="connexion">
+            <div class="connexion-mail-group">
+                <label for="connexion-mail">Votre @mail</label>
+                <input type="email" id="connexion-mail" />
+            </div>
+            <div class="connexion-mdp-group">
+                <label for="connexion-mdp">Votre mot de passe</label>
+                <input type="password" id="connexion-mdp" />
+            </div>
+            <button type="submit" class="btn-connexion">Connectez-vous</button>
+        </form>
+        <ul class="connexionsList"></ul>
+    </div>
+
+
+    <!-- Scripts FIREBASE BDD -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyB_8LA3fKHZhxsZuRAB272wjZWyQ1PC3rk",
+            authDomain: "authentificationjs-22be8.firebaseapp.com",
+            projectId: "authentificationjs-22be8",
+            storageBucket: "authentificationjs-22be8.appspot.com",
+            messagingSenderId: "1014506175779",
+            appId: "1:1014506175779:web:c308f1511912f45a2a2096"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        // Création de vriables pour faciliter l'utilisation de firebase
+        // après avoir chargé les scripts auth et firestore tout en début du script
+        const auth = firebase.auth();
+        const bdd = firebase.firestore();
+    </script>
+    <!-- Script PERSO -->
+    <script src="./app.js"></script>
+    <script src="./users.json" type="text/javascript"></script>
+</body>
+
+</html>
